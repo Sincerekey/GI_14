@@ -1,0 +1,135 @@
+html{
+    background: black;
+    color: white;
+}
+
+/* Styling for the main heading */
+h1{
+    text-align: center;
+}
+
+/* Styling for the movie recommendations section */
+#postList{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: repeat(auto);
+    grid-gap: 10px;
+}
+
+/* Styling for each movie container in the recommendations section */
+#postList section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    /* background: rgb(51, 50, 50); */ /* Commented out background color */
+    border-radius: 4%;
+}
+
+/* Styling for the user-selected movie section */
+#userMovie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 3%;
+}
+
+/* Styling for paragraphs inside the user-selected movie section */
+#userMovie p{
+    margin-bottom: 0;
+}
+
+/* Styling for images */
+img{
+    border-radius: 4%;
+}
+
+/* Styling for input fields */
+input{
+    background: black;
+    color: white;
+    border: 2px solid rgb(51, 50, 50);
+}
+
+/* Styling for buttons */
+button{
+    border: 1px solid yellow;
+    border-radius: 4%;
+    margin-left: 1%;
+    background: black;
+    color: white;
+}
+
+/* Keyframe animation for sliding in */
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Animation class for sliding in */
+.slide-in {
+    animation: 3s slideRight;
+}
+
+/* Styling for movie containers with flip effect */
+.movie-container {
+    position: relative;
+    display: flex;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    border: 2px solid yellow;
+    background: rgb(51, 50, 50);
+    overflow: scroll;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+/* Styling for the front and back sides of the movie container */
+.front-side,
+.back-side {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+/* Initial rotation for the front side */
+.front-side {
+    transform: rotateY(0deg);
+}
+
+/* Initial rotation for the back side */
+.back-side {
+    transform: rotateY(180deg);
+}
+
+/* Styling for the back side content */
+.back-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Styling for paragraphs inside the back side content */
+.back-side p {
+    margin: 0;
+    font-size: small; /* Set initial font size */
+}
+
+/* Styling for flipped front and back sides */
+.movie-container.flipped .front-side {
+    transform: rotateY(180deg);
+}
+
+.movie-container.flipped .back-side {
+    transform: rotateY(0deg);
+}
